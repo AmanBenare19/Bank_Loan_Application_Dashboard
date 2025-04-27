@@ -107,14 +107,6 @@ The final report was structured into **three detailed dashboards**:
 
 ---
 
-## 🧠 Future Enhancements
-
-- Implement live data updates via DirectQuery.
-- Integrate customer demographics for enhanced loan approval modeling.
-- Build predictive dashboards for early detection of high-risk loans.
-
----
-
 ## 🚀 Thank you for viewing this project!
 
 Feel free to explore the files and connect with me on [LinkedIn](https://www.linkedin.com/in/aman-benare-7801701bb/).
