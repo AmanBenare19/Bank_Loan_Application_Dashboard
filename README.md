@@ -2,52 +2,46 @@
 
 ## 📚 Project Overview
 
-This project analyzes a bank's loan application dataset using SQL queries for data extraction and aggregation, and Power BI for creating dynamic and interactive dashboards.  
-The objective was to extract key performance indicators (KPIs), visualize critical metrics, and deliver actionable business insights for financial decision-making.
+This project analyzes a synthetic bank loan application dataset using SQL Server for data extraction and aggregation, and Power BI for developing an interactive business intelligence dashboard.  
+The goal was to track key financial KPIs, monitor loan performance, and generate actionable insights for business decision-making in loan management and risk analysis.
+
+---
+
+## 🗄️ Dataset Description
+
+The project uses a synthetic dataset (`financial_loan.csv`) representing customer loan applications, including details such as loan amount, funded amount, customer demographics, loan purpose, interest rates, DTI (Debt-to-Income) ratios, and loan statuses (Fully Paid, Current, Charged Off).
+
+All data is fictional and used solely for educational and professional demonstration purposes.
 
 ---
 
 ## 🛠️ Tools and Technologies Used
 
-- **SQL Server**: Data extraction, data aggregation, and KPI generation
-- **Power BI**: Dashboard development, interactive data visualization
-- **Microsoft Excel**: Minor data validation and manual data checks
+- **SQL Server**: Data extraction, aggregation, and KPI calculations
+- **Power BI**: Dashboard creation, interactive reporting, visualization
+- **Microsoft Excel**: Data validation and cross-verification
+- **GitHub**: Version control and project documentation
 
 ---
 
-## 🗄️ Data Preparation and SQL Queries
+## 📊 Power BI Dashboard Overview
 
-The raw loan application data was stored in a table named `bank_loan_data`.  
-Using SQL, I extracted and aggregated the data into key performance metrics including:
-
-- Total Loan Applications
-- Funded Loan Amounts (Total, MTD, PMTD)
-- Received Loan Amounts (Total, MTD, PMTD)
-- Average Interest Rates
-- Average Debt-to-Income Ratios (DTI)
-- Good Loan and Bad Loan Percentages
-- Loan Status Breakdown
-- Trends by Month, State, Loan Term, Purpose, and Home Ownership
-
-The cleaned and aggregated output was fed into Power BI for visualization.
-
----
-
-## 📊 Power BI Dashboard Development
-
-The final report was structured into **three detailed dashboards**:
+The final report is structured into three main dashboards:
 
 ---
 
 ### 🔵 1. Summary Dashboard
 
-- High-level overview of critical KPIs:
-  - Total Loan Applications
-  - Funded Amounts
-  - Received Payments
-  - Average Interest Rate
-  - Average DTI
-- Snapshot performance with MTD vs PMTD comparisons.
+- Displays core KPIs:
+  - **Total Loan Applications**
+  - **Total Funded Amount**
+  - **Total Amount Received**
+  - **Average Interest Rate**
+  - **Average DTI (Debt-to-Income)**
+- Good Loan vs Bad Loan breakdown (donut chart with % visualization).
+- Loan Status Summary:
+  - Loan counts, funded amounts, received amounts categorized by status (Current, Charged Off, Fully Paid).
+- MTD (Month-to-Date) and MoM (Month-over-Month) comparisons for trend analysis.
 
 ![Summary Dashboard](images/summary_dashboard.png)
 
@@ -55,11 +49,14 @@ The final report was structured into **three detailed dashboards**:
 
 ### 🔵 2. Overview Dashboard
 
-- Loan status distribution (Fully Paid, Current, Charged Off)
-- Good Loan vs Bad Loan metrics
-- Funded and Received Amounts by Loan Status
-- Average Interest Rate and DTI across loan categories
-- Monthly trends for applications, funded amounts, and received payments
+- Trend of **Total Loan Applications by Month** (line chart).
+- State-wise loan application distribution (USA map).
+- Loan breakdowns by:
+  - **Loan Term** (36 vs 60 months)
+  - **Employee Length** (experience group)
+  - **Loan Purpose** (Credit Card, Debt Consolidation, Home Improvement, etc.)
+  - **Home Ownership Status** (Rent, Mortgage, Own)
+- Dynamic filters and slicers for real-time data exploration.
 
 ![Overview Dashboard](images/overview_dashboard.png)
 
@@ -67,46 +64,64 @@ The final report was structured into **three detailed dashboards**:
 
 ### 🔵 3. Details Dashboard
 
-- Detailed breakdown by:
-  - State
-  - Loan Term (36 months, 60 months)
-  - Purpose of Loan (e.g., Debt Consolidation, Credit Card, Home Improvement)
-  - Home Ownership Status (Rent, Own, Mortgage)
-- Drill-down capabilities and slicers for dynamic exploration
+- Tabular display of individual loan records:
+  - Loan ID, Purpose, Home Ownership, Grade, Sub-Grade, Issue Date, Funded Amount, Interest Rate, Installment, Amount Received.
+- Top panel KPIs for:
+  - Total Loan Applications
+  - Total Funded Amount
+  - Total Amount Received
+  - Average Interest Rate
+  - Average DTI
+- Slicers for filtering by State, Grade, and Good vs Bad Loan.
 
 ![Details Dashboard](images/details_dashboard.png)
 
 ---
 
-## 📈 Key Metrics (KPIs) Tracked
+## 🗄️ SQL Data Preparation and KPIs
 
-- Total Loan Applications
-- Funded Loan Amount (Total, MTD, PMTD)
-- Received Loan Amount (Total, MTD, PMTD)
-- Average Interest Rate (Overall, MTD, PMTD)
-- Average Debt-to-Income Ratio (Overall, MTD, PMTD)
-- Good Loan and Bad Loan Percentage
-- Loan Status breakdown by category
-- Trends by Month, State, Purpose, Term, and Home Ownership
+The raw dataset was pre-processed using SQL Server to generate KPIs, using queries such as:
 
----
+- `COUNT(id)` for total applications
+- `SUM(loan_amount)`, `SUM(total_payment)` for funding and payments
+- `AVG(int_rate)`, `AVG(dti)` for interest rate and DTI averages
+- Loan performance segmentation (Good Loan = Fully Paid or Current, Bad Loan = Charged Off)
+- MTD and PMTD analysis using issue dates
 
-## 📂 How to Navigate This Project
-
-- Review the SQL queries in `Loan_Application_SQL_Queries.docx` to understand data extraction and aggregation logic.
-- Open the Power BI file `AmanBenare_FinalProject.pbix` to interact with the dashboards, slicers, and dynamic KPIs.
+Aggregated data was imported into Power BI for further modeling and visualization.
 
 ---
 
-## 📚 Key Learnings and Project Impact
+## 📈 Key Metrics and Business Insights Delivered
 
-- Mastered SQL query writing for KPI generation, monthly comparisons, and aggregation.
-- Gained practical experience in Power BI dashboard development and storytelling.
-- Applied advanced data visualization techniques for financial and operational KPIs.
-- Delivered a business-ready reporting system that supports operational decision-making and financial strategy.
+- Good Loan vs Bad Loan analysis for credit risk monitoring.
+- Funding and payment trends by month, state, term, purpose, and home ownership.
+- Identification of high-risk categories and regional patterns.
+- Performance comparison across different loan types and borrower demographics.
+- Real-time slicing and dicing capabilities for business users.
 
 ---
 
-## 🚀 Thank you for viewing this project!
+## 📂 How to Navigate the Repository
 
-Feel free to explore the files and connect with me on [LinkedIn](https://www.linkedin.com/in/aman-benare-7801701bb/).
+- `AmanBenare_FinalProject.pbix`: Power BI dashboard file (all three dashboards inside).
+- `Loan_Application_SQL_Queries.docx`: SQL queries for KPI generation and data extraction.
+- `financial_loan.csv`: Raw dataset containing original bank loan applications.
+- `/images`: Dashboard screenshots (Summary, Overview, Details).
+
+---
+
+## 📚 Key Learnings
+
+- Practical experience in real-world KPI tracking using SQL Server.
+- Advanced Power BI dashboard development with multi-level filtering and dynamic storytelling.
+- End-to-end business intelligence workflow: from raw data → SQL aggregation → visual insights.
+- Skills in communicating financial trends and customer behavior through BI reports.
+
+---
+
+## 🚀 Thank You for Exploring!
+
+Feel free to view the dashboards, SQL queries, and raw data to understand the complete analytics lifecycle.  
+Connect with me on [LinkedIn](https://www.linkedin.com/in/aman-benare-7801701bb/).
+
